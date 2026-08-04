@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+</head>
+<body>
+
+    <h2>cadastrar</h2>
+    <form action="http://127.0.0.1:8000/cadastro" method="post">
+
+        <!-- Nome e Senha -->
+        <div>
+            <label for="nome">Nome Completo</label>
+            <input id="nome" name="nome" type="text" placeholder="Ex: Miguel de Araujo Grosz" required>
+
+            <label for="senha">Senha</label>
+            <input id="senha" name="senha" type="text" minlength="8" placeholder="Ex: 12345678" required>
+        </div>
+
+        <p></p>
+
+        <p></p>
+
+        <!-- Cidade e Estado -->
+        <!-- <div>
+                <label for="cidade">Cidade</label>
+                <input id="cidade" name="cidade" type="text" placeholder="Ex: São Paulo" required>
+            </select>
+        </div> -->
+
+        <p></p>
+
+        <!-- Celular e Email -->
+        <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="Ex: marcelo@gmail.com" required>
+        </div>
+
+        <p></p>
+
+        <button type="submit">Cadastrar</button>
+        
+    </form>
+    
+    
+</body>
+</html>

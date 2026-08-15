@@ -119,7 +119,33 @@ def excluir_usuario(id: int):
 
     return {"mensagem": "Usuário excluído com sucesso"}
 
+@app.post("/alterar")
+def alterar(
+    email: str = Form(...),
+    nome: str = Form(...),
+    senha: str = Form(...),
+    novo_email: str = Form(...)
+):
 
+    cursor = conexao.cursor()
+
+    sql = """
+    UPDATE usuarios
+    SET nome = %s, senha = %s, email = %s
+    WHERE email = %s
+    """
+
+    valores = (nome, senha, novo_email, email)
+
+    cursor.execute(sql, valores)
+
+    conexao.commit()
+
+    cursor.close()
+
+    return RedirectResponse(
+    url="http://127.0.0.1:5500/mercado_PY/frontend/pagina_log.html",
+    status_code=303)
 # @app.get("/paginadinamica/{caminho}")
 # def paginaDinamica(response: Response):
 #     txt = "<html><body><h1>Hellow</h1></body></html>"        

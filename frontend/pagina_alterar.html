@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alterar</title>
+</head>
+
+<body>
+    <h1>Alterar cadastro</h1>
+
+    <form action="http://127.0.0.1:8000/alterar" method="post">
+
+        <div>
+            <label for="email">E-mail atual</label>
+            <input id="email" name="email" type="email" required>
+        </div>
+
+        <div>
+            <label for="nome">Novo nome</label>
+            <input id="nome" name="nome" type="text" required>
+        </div>
+
+        <div>
+            <label for="senha">Nova senha</label>
+            <input id="senha" name="senha" type="text" required>
+        </div>
+
+        <div>
+            <label for="novo_email">Novo e-mail</label>
+            <input id="novo_email" name="novo_email" type="email" required>
+        </div>
+
+        <button type="submit">Alterar</button>
+
+    </form>
+
+</body>
+</html>

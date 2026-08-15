@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Usuários cadastrados</title>
+
+</head>
+
+
+<body>
+
+
+<h2>Usuários cadastrados</h2>
+
+
+<table border="1">
+
+<tr>
+
+<th>ID</th>
+<th>Nome</th>
+<th>Senha</th>
+<th>Email</th>
+
+</tr>
+
+
+<tbody id="lista">
+
+</tbody>
+
+
+</table>
+
+
+
+<script>
+
+
+fetch("http://127.0.0.1:8000/usuarios")
+
+.then(res => res.json())
+
+.then(dados => {
+
+
+    let tabela = document.getElementById("lista");
+
+
+    dados.forEach(usuario => {
+
+
+        tabela.innerHTML += `
+
+        <tr>
+
+            <td>${usuario[0]}</td>
+
+            <td>${usuario[1]}</td>
+
+            <td>${usuario[2]}</td>
+
+            <td>${usuario[3]}</td>
+
+             <td>
+            <button onclick="excluirUsuario(${usuario[0]})">
+                Excluir
+            </button>
+
+            <button onclick="alterarUsuario(${usuario[0]})">
+                Alterar
+            </button>
+            </td>
+        </tr>
+
+        `;
+
+
+    });
+
+
+})
+
+.catch(erro => {
+
+console.log("Erro:", erro);
+
+});
+
+function excluirUsuario(id) {
+
+    fetch(`http://127.0.0.1:8000/usuarios/${id}`, {
+        method: "DELETE"
+    })
+
+    .then(res => res.json())
+
+    .then(dados => {
+
+        console.log(dados);
+
+        location.reload();
+
+    })
+
+    .catch(erro => {
+
+        console.log("Erro:", erro);
+
+    });
+
+}
+
+</script>
+
+
+</body>
+
+</html>
